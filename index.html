@@ -41,19 +41,6 @@
             --radius-xl: 24px;
         }
 
-        /* PREDEFINIÇÃO DE CORES ESCURAS (DARK MODE) */
-        body.dark-mode {
-            --off-white: #0A0F1D;
-            --white: #131A2E;
-            --text-main: #E2E8F0;
-            --text-mid: #94A3B8;
-            --border: rgba(255, 255, 255, 0.08);
-            --border-strong: rgba(255, 255, 255, 0.15);
-            --ice: #1E293B;
-            --ice-mid: #334155;
-            --navy-mid: #234888;
-        }
-
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
@@ -65,7 +52,6 @@
             flex-direction: column;
             align-items: center;
             padding: 0;
-            transition: background 0.3s, color 0.3s;
         }
 
         /* GLOBAL NAV HEADER */
@@ -137,7 +123,7 @@
         .hero {
             text-align: center;
             padding: 48px 32px 40px;
-            background: var(--white);
+            background: white;
             border-radius: var(--radius-xl);
             border: 1px solid var(--border);
             box-shadow: var(--shadow-lg);
@@ -166,7 +152,7 @@
         .hero h1 {
             font-family: 'DM Serif Display', serif;
             font-size: 32px;
-            color: var(--text-main);
+            color: var(--navy);
             margin-bottom: 12px;
             line-height: 1.2;
         }
@@ -202,7 +188,7 @@
 
         /* CARDS */
         .card {
-            background: var(--white);
+            background: white;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border);
             box-shadow: var(--shadow-sm);
@@ -241,7 +227,7 @@
         .card-head-icon.purple svg { stroke: var(--admin); }
         .card-head-icon.navy { background: var(--ice); }
         .card-head-icon.navy svg { stroke: var(--navy-mid); }
-        .card-head-text h2 { font-size: 19px; font-weight: 600; color: var(--text-main); margin-bottom: 3px; }
+        .card-head-text h2 { font-size: 19px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
         .card-head-text p { font-size: 13px; color: var(--text-muted); }
 
         /* FORM FIELDS */
@@ -272,7 +258,7 @@
         .field select:focus {
             border-color: var(--cyan);
             box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
-            background: var(--white);
+            background: white;
         }
         .field input::placeholder { color: var(--text-muted); }
 
@@ -373,8 +359,8 @@
             color: var(--text-mid);
             line-height: 1.7;
         }
-        .hint-box strong { color: var(--text-main); display: block; margin-bottom: 6px; }
-        .hint-box code { font-family: 'DM Mono', monospace; background: var(--ice-mid); padding: 1px 5px; border-radius: 4px; font-size: 11.5px; color: var(--teal); }
+        .hint-box strong { color: var(--navy); display: block; margin-bottom: 6px; }
+        .hint-box code { font-family: 'DM Mono', monospace; background: var(--ice-mid); padding: 1px 5px; border-radius: 4px; font-size: 11.5px; }
 
         /* SECTION TABS */
         .tab-bar {
@@ -403,7 +389,7 @@
             gap: 5px;
         }
         .tab-btn svg { width: 14px; height: 14px; stroke-width: 2; fill: none; }
-        .tab-btn.active { background: var(--white); color: var(--text-main); box-shadow: var(--shadow-sm); }
+        .tab-btn.active { background: white; color: var(--navy); box-shadow: var(--shadow-sm); }
         .tab-btn.active-green.active { color: var(--success); }
         .tab-btn.active-purple.active { color: var(--admin); }
 
@@ -460,7 +446,7 @@
             color: var(--text-main);
             outline: none;
         }
-        .schedule-row input[type="time"]:focus { border-color: var(--cyan); background: var(--white); }
+        .schedule-row input[type="time"]:focus { border-color: var(--cyan); background: white; }
         .schedule-row input[type="text"] {
             flex: 1;
             padding: 10px 12px;
@@ -472,7 +458,7 @@
             color: var(--text-main);
             outline: none;
         }
-        .schedule-row input[type="text"]:focus { border-color: var(--cyan); background: var(--white); }
+        .schedule-row input[type="text"]:focus { border-color: var(--cyan); background: white; }
         .btn-remove-row {
             width: 34px;
             height: 34px;
@@ -537,11 +523,11 @@
         .clock-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan-light); margin-bottom: 6px; }
         .clock-time { font-family: 'DM Serif Display', serif; font-size: 48px; color: white; letter-spacing: -1px; line-height: 1; }
         .clock-date { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
-        .welcome-name { font-size: 17px; font-weight: 600; color: var(--text-main); margin-bottom: 16px; }
+        .welcome-name { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 16px; }
         .welcome-name span { color: var(--teal); }
 
         .med-card {
-            background: var(--white);
+            background: white;
             border: 1px solid var(--border);
             border-left: 4px solid var(--teal);
             border-radius: var(--radius);
@@ -554,7 +540,7 @@
         .med-card.firing-card { border-left-color: var(--danger); background: var(--danger-bg); animation: pulse 1.5s infinite; }
         @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,0.15)} 50%{box-shadow:0 0 0 6px rgba(192,57,43,0.05)} }
         .med-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-        .med-name { font-size: 16px; font-weight: 600; color: var(--text-main); }
+        .med-name { font-size: 16px; font-weight: 600; color: var(--navy); }
         .med-time {
             font-size: 13px;
             font-weight: 600;
@@ -607,49 +593,6 @@
         }
         .add-doctor-box .box-title { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
         .add-doctor-box .field { margin-bottom: 10px; }
-
-        /* ELEMENTOS DO BOTÃO DE CONFIGURAÇÃO COMPLEMENTAR */
-        .config-fab {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--navy);
-            color: white;
-            border: none;
-            box-shadow: var(--shadow-lg);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1001;
-            transition: transform 0.2s;
-        }
-        .config-fab:hover { transform: scale(1.05); }
-        .config-fab svg { width: 22px; height: 22px; fill: white; }
-        
-        .config-panel {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 320px;
-            max-height: 420px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            padding: 20px;
-            display: none;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1001;
-            overflow-y: auto;
-        }
-        .config-panel.open { display: flex; }
-        .config-panel h3 { font-size: 15px; color: var(--teal); font-weight: 600; }
-        .config-panel hr { border: 0; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
@@ -666,7 +609,7 @@
 
     <div class="page-content">
 
-        <div class="screen active" id="tela-inicial">
+        <div class="screen" id="tela-inicial">
             <div class="hero">
                 <div class="card-top-accent"></div>
                 <div class="hero-emblem">
@@ -684,13 +627,13 @@
                         </div>
                         <span>Prescrições</span>
                     </div>
-                    <div class="hero-feat">
+                    <div class="hero-features">
                         <div class="hero-feat-icon">
                             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
                         <span>Alertas</span>
                     </div>
-                    <div class="hero-feat">
+                    <div class="hero-features">
                         <div class="hero-feat-icon">
                             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                         </div>
@@ -704,47 +647,114 @@
             </div>
         </div>
 
+        <div class="screen active" id="tela-selecao">
+            <!-- Branding da Clínica -->
+            <div style="text-align: center; margin-bottom: 30px; padding-top: 40px;">
+                <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--cyan), var(--teal)); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; box-shadow: 0 4px 20px rgba(0, 180, 216, 0.4);">
+                    <svg viewBox="0 0 24 24" style="width: 34px; height: 34px; stroke: white; fill: none; stroke-width: 2;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12h6m-3-3v6"/></svg>
+                </div>
+                <h1 style="font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--navy); margin-bottom: 8px;">SimeMed</h1>
+                <p style="font-size: 16px; color: var(--text-mid);">Bem-vindo! Como você deseja acessar o sistema?</p>
+            </div>
+
+            <div style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+                <!-- Botão Paciente -->
+                <div class="card" onclick="abrirLogin('paciente')" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: flex; align-items: center; gap: 20px; padding: 24px;">
+                    <div style="width: 56px; height: 56px; background: var(--ice); color: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" style="width: 28px; height: 28px; fill: none; stroke-width: 2;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 18px; color: var(--navy); margin-bottom: 4px;">Sou Paciente</h3>
+                        <p style="font-size: 14px; color: var(--text-mid);">Acessar minhas receitas e falar com o médico.</p>
+                    </div>
+                    <div style="margin-left: auto; color: var(--border-strong);">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" style="width: 24px; height: 24px; fill: none; stroke-width: 2;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </div>
+
+                <!-- Botão Médico -->
+                <div class="card" onclick="abrirLogin('medico')" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: flex; align-items: center; gap: 20px; padding: 24px;">
+                    <div style="width: 56px; height: 56px; background: var(--off-white); color: var(--navy-mid); border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" style="width: 28px; height: 28px; fill: none; stroke-width: 2;">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 18px; color: var(--navy); margin-bottom: 4px;">Sou Médico / Admin</h3>
+                        <p style="font-size: 14px; color: var(--text-mid);">Gerenciar pacientes e realizar prescrições.</p>
+                    </div>
+                    <div style="margin-left: auto; color: var(--border-strong);">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" style="width: 24px; height: 24px; fill: none; stroke-width: 2;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow);
+                    border-color: var(--cyan);
+                }
+            </style>
+        </div>
+
         <div class="screen" id="tela-login">
-            <div class="card">
+            <!-- Branding da Clínica -->
+            <div style="text-align: center; margin-bottom: 24px; padding-top: 20px;">
+                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--cyan), var(--teal)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);">
+                    <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; stroke: white; fill: none; stroke-width: 2;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12h6m-3-3v6"/></svg>
+                </div>
+                <h1 style="font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--navy); margin-bottom: 4px;">SimeMed</h1>
+                <p style="font-size: 14px; color: var(--text-mid);">Portal de Medicamentos</p>
+            </div>
+
+            <div class="card" style="margin: 0 auto;">
                 <div class="card-top-accent"></div>
-                <div class="card-head">
-                    <div class="card-head-icon blue">
-                        <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                <div class="card-head" style="position: relative;">
+                    <button onclick="voltarSelecao()" style="position: absolute; top: -10px; right: 0; background: none; border: none; color: var(--text-mid); font-size: 13px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 4px;">
+                        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg> Voltar
+                    </button>
+                    <div class="card-head-icon blue" style="background: var(--ice); color: var(--teal);">
+                        <svg viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
                     </div>
                     <div class="card-head-text">
-                        <h2>Acesso ao Sistema</h2>
-                        <p>Identifique-se com suas credenciais institucionais</p>
+                        <h2 id="login-titulo-texto">Acesso ao Sistema</h2>
+                        <p id="login-desc-texto">Faça login para ver suas receitas, alarmes e falar com o médico.</p>
                     </div>
                 </div>
 
                 <div class="error-msg" id="msg-erro">
-                    <strong>Acesso negado.</strong> Usuário ou senha não reconhecidos.
+                    <strong>Acesso negado.</strong> E-mail ou senha incorretos.
                 </div>
 
                 <div class="field">
-                    <label for="usuario">E-mail Institucional</label>
-                    <input type="email" id="usuario" placeholder="usuario@hospital.com" autocomplete="off">
+                    <label for="usuario">E-mail de Acesso</label>
+                    <input type="email" id="usuario" placeholder="seu.email@exemplo.com" autocomplete="off">
                 </div>
                 <div class="field">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="••••••••">
+                    <input type="password" id="senha" placeholder="Sua senha de acesso">
                 </div>
 
-                <button class="btn btn-primary" onclick="fazerLogin()" style="margin-top:8px;">
-                    <svg viewBox="0 0 24 24" stroke="white"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
-                    Entrar no Sistema
+                <button class="btn btn-cyan" onclick="fazerLogin()" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    Entrar no Meu Painel
                 </button>
-                <a class="link" onclick="mostrarTela('tela-novo-cadastro')">Não tem acesso? Criar nova conta</a>
-                <button class="btn btn-ghost" style="margin-top:10px;" onclick="mostrarTela('tela-inicial')">
-                    ← Voltar à página inicial
-                </button>
-
-                <div class="hint-box">
-                    <strong>🔑 Acessos de demonstração</strong>
-                    👑 Admin: <code>admin@simemed.com</code> / <code>admin123</code><br>
-                    👨‍⚕️ Médico: <code>medico@clinica.com</code> / <code>123</code><br>
-                    👤 Paciente: <code>joao@email.com</code> ou <code>maria@email.com</code> / <code>123</code>
+                
+                <div style="text-align: center; margin-top: 24px; font-size: 13px; color: var(--text-mid);">
+                    Não lembra a senha ou não tem cadastro? <br>
+                    <a href="#" style="color: var(--teal); text-decoration: none; font-weight: 500;">Fale com a recepção da clínica</a>
                 </div>
+            </div>
+            
+            <div style="max-width: 420px; margin: 30px auto; background: var(--off-white); border: 1px dashed var(--border-strong); padding: 15px; border-radius: var(--radius-sm); font-size: 13px; color: var(--text-mid);">
+                <strong>Contas de Teste:</strong><br><br>
+                <strong>Admin:</strong> <code>admin@simemed.com</code> / <code>admin123</code><br>
+                <strong>Médico (padrão):</strong> <code>dr.joao@hospital.com</code> / <code>123</code><br>
+                <strong>Paciente (padrão):</strong> <code>maria@email.com</code> / <code>123</code>
             </div>
         </div>
 
@@ -845,11 +855,6 @@
                         <svg viewBox="0 0 24 24" stroke="white"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         Salvar e Enviar Receita
                     </button>
-
-                    <button class="btn btn-ghost btn-sm" onclick="mostrarUltimosPacientesMedicados()" style="margin-top: 16px;">
-                        📋 Ver Pacientes Atendidos por Mim
-                    </button>
-                    <div id="historicoPacsMedico" class="hint-box" style="display: none; margin-top: 10px;"></div>
                 </div>
 
                 <div class="section-block" id="sub-cadastrar">
@@ -1012,11 +1017,6 @@
                 <div class="section-label">Meus Medicamentos</div>
                 <div id="listaAlarmes"></div>
 
-                <button class="btn btn-ghost" onclick="mostrarHistoricoMedicamentosTomados()" style="margin-top: 16px;">
-                    📋 Ver Histórico de Medicamentos Tomados
-                </button>
-                <div id="historicoMedsPaciente" class="hint-box" style="display: none; margin-top: 10px;"></div>
-
                 <div class="screen-footer">
                     <button class="btn btn-danger" onclick="fazerLogout()">
                         <svg viewBox="0 0 24 24" stroke="currentColor" style="stroke:var(--danger);"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
@@ -1026,55 +1026,17 @@
             </div>
         </div>
 
-    </div>
-
-    <button class="config-fab" onclick="toggleConfigPanel()" title="Configurações e Suporte">
-        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-    </button>
-
-    <div class="config-panel" id="configPanel">
-        <h3>Configurações do Sistema</h3>
-        <hr>
-        <div class="field">
-            <label>Cor de Fundo / Tema</label>
-            <button class="btn btn-ghost btn-sm" style="width:100%;" onclick="toggleTemaEscuro()">
-                🌓 Alternar Claro / Escuro
-            </button>
-        </div>
-
-        <div id="config-shortcuts"></div>
-
-        <div id="config-support-client">
-            <div class="field">
-                <label>Contato com o Suporte</label>
-                <textarea id="suporteMensagem" placeholder="Escreva sua dúvida ou problema para o admin..." style="width:100%; height:70px; padding:10px; font-family:inherit; font-size:13px; border-radius:var(--radius); border:1.5px solid var(--border-strong); background:var(--off-white); color:var(--text-main); resize:none; outline:none;"></textarea>
-            </div>
-            <button class="btn btn-cyan btn-sm" style="width:100%;" onclick="enviarMensagemSuporte()">Enviar ao Admin</button>
-        </div>
-
-        <div id="config-support-admin" style="display:none;">
-            <label style="font-size:11px; font-weight:700; color:var(--admin); text-transform:uppercase;">Mensagens de Suporte Recebidas</label>
-            <div id="listaChamadosSuporte" style="max-height:160px; overflow-y:auto; margin-top:6px; background:var(--off-white); border-radius:var(--radius); padding:8px; border:1px solid var(--border); font-size:12px;">
-                Nenhuma mensagem encontrada.
-            </div>
-        </div>
-    </div>
-
-<script>
+    </div><script>
     let bancoPacientes = [];
     let bancoMedicos = [];
     let globalAlarmes = [];
-    let bancoSuporte = []; // Guarda as interações de suporte enviadas ao Admin
     let atualPacienteLogadoId = null;
-    let atualMedicoLogadoId = null; 
-    let isAdminLogado = false; // Monitora se o admin está logado
+    let atualMedicoLogadoId = null;
 
     function carregarDados() {
         const ps = localStorage.getItem('simeMed_pacientes');
         const ms = localStorage.getItem('simeMed_medicos');
         const as = localStorage.getItem('simeMed_alarmes');
-        const ss = localStorage.getItem('simeMed_suporte');
-        
         bancoPacientes = ps ? JSON.parse(ps) : [
             { id: 1, nome: "João Silva", email: "joao@email.com", senha: "123", telefone: "(11) 98888-8888" },
             { id: 2, nome: "Maria Souza", email: "maria@email.com", senha: "123", telefone: "(11) 97777-7777" }
@@ -1083,8 +1045,6 @@
             { id: 1, nome: "Dr. Plantonista", email: "medico@clinica.com", senha: "123" }
         ];
         globalAlarmes = as ? JSON.parse(as) : [];
-        bancoSuporte = ss ? JSON.parse(ss) : [];
-        
         salvar();
     }
 
@@ -1092,18 +1052,12 @@
         localStorage.setItem('simeMed_pacientes', JSON.stringify(bancoPacientes));
         localStorage.setItem('simeMed_medicos', JSON.stringify(bancoMedicos));
         localStorage.setItem('simeMed_alarmes', JSON.stringify(globalAlarmes));
-        localStorage.setItem('simeMed_suporte', JSON.stringify(bancoSuporte));
     }
 
     window.onload = function() {
         carregarDados();
         atualizarDropdownPacientes();
         atualizarDataAtual();
-        
-        // Mantém a preferência de cor salva pelo usuário
-        if (localStorage.getItem('simeMed_theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
     };
 
     function atualizarDataAtual() {
@@ -1116,22 +1070,46 @@
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         window.scrollTo(0,0);
-        atualizarPainelConfig();
+    }
+
+    function abrirLogin(tipo) {
+        window.tipoLoginAtual = tipo; // Define globalmente o tipo de login sendo feito
+        
+        const titulo = document.getElementById("login-titulo-texto");
+        const desc = document.getElementById("login-desc-texto");
+        
+        if (tipo === 'paciente') {
+            titulo.innerText = "Área do Paciente";
+            desc.innerText = "Faça login para ver suas receitas, alarmes e falar com o médico.";
+        } else {
+            titulo.innerText = "Área do Profissional";
+            desc.innerText = "Acesse com suas credenciais para gerenciar pacientes e prescrições.";
+        }
+        
+        mostrarTela('tela-login');
+    }
+
+    function voltarSelecao() {
+        mostrarTela('tela-selecao');
+        document.getElementById("usuario").value = "";
+        document.getElementById("senha").value = "";
+        document.getElementById("msg-erro").classList.remove('show');
     }
 
     function fazerLogin() {
-        const user = document.getElementById("usuario").value.trim().toLowerCase();
-        const pass = document.getElementById("senha").value.trim();
-        const err = document.getElementById("msg-erro");
-        err.classList.remove('show');
-        
+    const user = document.getElementById("usuario").value.trim().toLowerCase();
+    const pass = document.getElementById("senha").value.trim();
+    const err = document.getElementById("msg-erro");
+    err.classList.remove('show');
+
+    // Se o usuário selecionou a aba de Médico/Admin
+    if (window.tipoLoginAtual === 'medico') {
         if (user === "admin@simemed.com" && pass === "admin123") {
-            isAdminLogado = true;
             mostrarTela("tela-admin");
             subTelaAdmin('pacientes');
             return;
         }
-        
+
         const med = bancoMedicos.find(m => m.email === user && m.senha === pass);
         if (med) {
             atualMedicoLogadoId = med.id;
@@ -1140,7 +1118,9 @@
             atualizarTabelaMedico();
             return;
         }
-        
+    } 
+    // Se o usuário selecionou a aba de Paciente
+    else if (window.tipoLoginAtual === 'paciente') {
         const pac = bancoPacientes.find(p => p.email === user && p.senha === pass);
         if (pac) {
             atualPacienteLogadoId = pac.id;
@@ -1150,27 +1130,21 @@
             atualizarInterfaceDoPaciente();
             return;
         }
-        
-        err.classList.add('show');
     }
+
+    // Se chegou até aqui, o usuário/senha está errado OU ele tentou logar na aba errada
+    err.classList.add('show');
+}
 
     function fazerLogout() {
-        atualPacienteLogadoId = null;
-        atualMedicoLogadoId = null;
-        isAdminLogado = false;
-        document.getElementById("usuario").value = "";
-        document.getElementById("senha").value = "";
-        document.getElementById("form-editar-paciente").classList.remove('open');
-        document.getElementById("form-editar-receita").classList.remove('open');
-        
-        const hPac = document.getElementById("historicoMedsPaciente");
-        const hMed = document.getElementById("historicoPacsMedico");
-        if (hPac) hPac.style.display = "none";
-        if (hMed) hMed.style.display = "none";
-
-        document.getElementById("configPanel").classList.remove('open');
-        mostrarTela("tela-login");
-    }
+    atualPacienteLogadoId = null;
+    atualMedicoLogadoId = null;
+    document.getElementById("usuario").value = "";
+    document.getElementById("senha").value = "";
+    document.getElementById("form-editar-paciente").classList.remove('open');
+    document.getElementById("form-editar-receita").classList.remove('open');
+    mostrarTela("tela-login");
+}
 
     function registrarNovoUsuario() {
         const nome = document.getElementById("novoNome").value.trim();
@@ -1221,7 +1195,7 @@
         document.getElementById('sub-' + aba).classList.add('visible');
         document.getElementById('tabMedPrescricao').classList.remove('active');
         document.getElementById('tabMedCadastrar').classList.remove('active');
-        if (aba === 'prescricao') { document.getElementById('tabMedPrescricao').classList.add('active'); atualizarDropdownPacientes(); }
+        if (aba === 'prescricao') { document.getElementById('tabMedPrescricao').classList.add('active'); atualizarDropdownPacientes(); atualizarTabelaMedico(); }
         else { document.getElementById('tabMedCadastrar').classList.add('active'); }
     }
 
@@ -1251,65 +1225,91 @@
     }
 
     function prescreverRemedio() {
-        const pacId = parseInt(document.getElementById("pacienteSelecionado").value);
-        const remedio = document.getElementById("nomeRemedio").value.trim();
-        const instrucoes = document.getElementById("instrucoes").value.trim();
-        
-        if (!pacId) { alert("Selecione um paciente válido."); return; }
-        if (!remedio) { alert("Informe o nome do medicamento."); return; }
-        
-        const rows = document.querySelectorAll(".schedule-row");
-        let count = 0;
-        
-        rows.forEach(row => {
-            const hora = row.querySelector("input[type='time']").value;
-            const desc = row.querySelector("input[type='text']").value.trim();
-            if (hora) {
-                count++;
-                const id = globalAlarmes.length > 0 ? Math.max(...globalAlarmes.map(a => a.id)) + 1 : 1;
-                globalAlarmes.push({ 
-                    id, 
-                    pacienteId: pacId, 
-                    medicoId: atualMedicoLogadoId, 
-                    remedio, 
-                    instrucoes: instrucoes || "Sem orientações adicionais.", 
-                    horario: hora, 
-                    descHorario: desc, 
-                    status: "Pendente" 
-                });
-            }
-        });
-        
-        if (count === 0) { alert("Preencha pelo menos um horário."); return; }
-        salvar();
-        
-        document.getElementById("nomeRemedio").value = "";
-        document.getElementById("instrucoes").value = "";
-        document.getElementById("lista-horarios").innerHTML = `<div class="schedule-row"><input type="time"><input type="text" placeholder="Dosagem ou remédio exato…"></div>`;
-        alert("Prescrição enviada com sucesso!");
-        atualizarTabelaMedico();
-        
-        const hMed = document.getElementById("historicoPacsMedico");
-        if (hMed && hMed.style.display === "block") {
-            hMed.style.display = "none";
-            mostrarUltimosPacientesMedicados();
+    const pacId = parseInt(document.getElementById("pacienteSelecionado").value);
+    const remedio = document.getElementById("nomeRemedio").value.trim();
+    const instrucoes = document.getElementById("instrucoes").value.trim();
+
+    if (!pacId) { alert("Selecione um paciente válido."); return; }
+    if (!remedio) { alert("Informe o nome do medicamento."); return; }
+
+    const rows = document.querySelectorAll(".schedule-row");
+    let count = 0;
+
+    rows.forEach(row => {
+        const hora = row.querySelector("input[type='time']").value;
+        const desc = row.querySelector("input[type='text']").value.trim();
+
+        if (hora) {
+            count++;
+            const id = globalAlarmes.length > 0 ? Math.max(...globalAlarmes.map(a => a.id)) + 1 : 1;
+            globalAlarmes.push({
+                id,
+                pacienteId: pacId,
+                medicoId: atualMedicoLogadoId || 1,
+                remedio,
+                instrucoes: instrucoes || "Sem orientações adicionais.",
+                horario: hora,
+                descHorario: desc,
+                status: "Pendente",
+                observacao: "",
+                respostaMedico: ""
+            });
         }
-    }
+    });
+
+    if (count === 0) { alert("Preencha pelo menos um horário."); return; }
+    salvar();
+
+    document.getElementById("nomeRemedio").value = "";
+    document.getElementById("instrucoes").value = "";
+    document.getElementById("lista-horarios").innerHTML = `<div class="schedule-row"><input type="time"><input type="text" placeholder="Dosagem ou remédio exato…"></div>`;
+    alert("Prescrição enviada com sucesso!");
+    atualizarTabelaMedico();
+}
 
     function atualizarTabelaMedico() {
         const tb = document.getElementById("tabelaGeralReceitas");
         if (!tb) return;
         tb.innerHTML = "";
         if (globalAlarmes.length === 0) {
-            tb.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-muted);">Nenhuma prescrição activa</td></tr>`;
+            tb.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-muted);">Nenhuma prescrição ativa</td></tr>`;
             return;
         }
         globalAlarmes.forEach(a => {
             const pac = bancoPacientes.find(p => p.id === a.pacienteId);
             const nomePac = pac ? pac.nome : "Desconhecido";
             const statusClass = a.status === "Tomado" ? "taken" : a.status.includes("Dispar") ? "firing" : "pending";
+            
+            let docChatHtml = '';
+            if (a.observacao) {
+                docChatHtml += `<div style="margin-top: 8px; padding: 10px; background: var(--warning-bg); border-radius: var(--radius); font-size: 12px; border: 1px solid rgba(183,119,13,0.15); color: var(--text-main);">`;
+                docChatHtml += `<div><strong>❓ Dúvida do Paciente:</strong> ${a.observacao}</div>`;
+                if (a.respostaMedico) {
+                    docChatHtml += `<div style="margin-top: 6px; color: var(--success); border-top: 1px dashed var(--border-strong); padding-top: 4px;"><strong>🩺 Sua Resposta:</strong> ${a.respostaMedico}</div>`;
+                }
+                docChatHtml += `
+                    <div style="margin-top: 6px; display: flex; gap: 6px;">
+                        <input type="text" id="resp-input-${a.id}" placeholder="Digitar resposta institucional..." style="flex:1; padding: 6px 10px; font-size: 11px; border: 1px solid var(--border-strong); border-radius: 4px; background: white;" value="${a.respostaMedico || ''}">
+                        <button class="btn btn-sm btn-green" style="width:auto; padding: 4px 10px; font-size: 11px; margin:0;" onclick="enviarRespostaMedico(${a.id})">Enviar</button>
+                    </div>
+                `;
+                docChatHtml += `</div>`;
+            } else {
+                docChatHtml += `<div style="margin-top: 4px; font-size: 11px; color: var(--text-muted); font-style: italic;">Nenhuma dúvida enviada pelo paciente.</div>`;
+            }
+
             const tr = document.createElement("tr");
-            tr.innerHTML = `<td>${nomePac}</td><td>${a.remedio}${a.descHorario ? `<br><small style="color:var(--text-muted)">${a.descHorario}</small>` : ""}</td><td><strong>${a.horario}</strong></td><td><span class="status-pill ${statusClass}">${a.status}</span></td><td><button class="btn btn-sm btn-danger" style="width:auto;" onclick="deletarPrescricao(${a.id})">Remover</button></td>`;
+            tr.innerHTML = `
+                <td>${nomePac}</td>
+                <td>
+                    <strong>${a.remedio}</strong>
+                    ${a.descHorario ? `<br><small style="color:var(--text-muted)">${a.descHorario}</small>` : ""}
+                    ${docChatHtml}
+                </td>
+                <td><strong>${a.horario}</strong></td>
+                <td><span class="status-pill ${statusClass}">${a.status}</span></td>
+                <td><button class="btn btn-sm btn-danger" style="width:auto;" onclick="deletarPrescricao(${a.id})">Remover</button></td>
+            `;
             tb.appendChild(tr);
         });
     }
@@ -1318,6 +1318,30 @@
         if (confirm("Remover esta prescrição?")) {
             globalAlarmes = globalAlarmes.filter(a => a.id !== id);
             salvar(); atualizarTabelaMedico();
+        }
+    }
+
+    function enviarObservacao(id) {
+        const txt = document.getElementById(`obs-input-${id}`).value.trim();
+        if (!txt) { alert("Por favor, digite uma observação ou dúvida."); return; }
+        const a = globalAlarmes.find(al => al.id === id);
+        if (a) {
+            a.observacao = txt;
+            salvar();
+            atualizarInterfaceDoPaciente();
+            alert("Observação enviada com sucesso! O médico responsável foi notificado.");
+        }
+    }
+
+    function enviarRespostaMedico(id) {
+        const txt = document.getElementById(`resp-input-${id}`).value.trim();
+        if (!txt) { alert("Por favor, digite uma resposta para o paciente."); return; }
+        const a = globalAlarmes.find(al => al.id === id);
+        if (a) {
+            a.respostaMedico = txt;
+            salvar();
+            atualizarTabelaMedico();
+            alert("Resposta enviada para o painel do paciente.");
         }
     }
 
@@ -1344,46 +1368,77 @@
     }, 1000);
 
     function atualizarInterfaceDoPaciente() {
-        const c = document.getElementById("listaAlarmes");
-        if (!c) return;
-        c.innerHTML = "";
-        const meus = globalAlarmes.filter(a => a.pacienteId === atualPacienteLogadoId);
-        if (meus.length === 0) {
-            c.innerHTML = `<div class="no-meds">Nenhum medicamento agendado para si</div>`;
-            return;
-        }
-        meus.forEach(a => {
-            const isTomado = a.status === "Tomado";
-            const isFiring = a.status.includes("Dispar");
-            const card = document.createElement("div");
-            card.className = `med-card${isTomado ? ' taken-card' : ''}${isFiring ? ' firing-card' : ''}`;
-            card.innerHTML = `
-                <div class="med-card-top">
-                    <div class="med-name">💊 ${a.remedio}</div>
-                    <div class="med-time">⏰ ${a.horario}</div>
-                </div>
-                ${a.descHorario ? `<div class="med-specific">🎯 ${a.descHorario}</div>` : ''}
-                <div class="med-detail">ℹ️ ${a.instrucoes}</div>
-                <div><span class="status-pill ${isTomado ? 'taken' : isFiring ? 'firing' : 'pending'}">${a.status}</span></div>
-                ${!isTomado ? `<button class="btn btn-green" style="margin-top:12px;" onclick="marcarTomado(${a.id})"><svg viewBox="0 0 24 24" stroke="white" style="width:16px;height:16px;fill:none;stroke-width:2.5"><polyline points="20 6 9 17 4 12"/></svg> Marcar como Tomado</button>` : ''}
-            `;
-            c.appendChild(card);
-        });
+    const c = document.getElementById("listaAlarmes");
+    if (!c) return;
+    c.innerHTML = "";
+
+    const meus = globalAlarmes.filter(a => a.pacienteId === atualPacienteLogadoId);
+
+    if (meus.length === 0) {
+        c.innerHTML = `<div class="no-meds">Nenhum medicamento agendado para você</div>`;
+        return;
     }
+
+    const tituloReceitas = document.createElement("h3");
+    tituloReceitas.style.margin = "15px 0 10px 0";
+    tituloReceitas.style.fontSize = "16px";
+    tituloReceitas.style.color = "var(--navy)";
+    tituloReceitas.textContent = "Aqui estão suas receitas:";
+    c.appendChild(tituloReceitas);
+
+    meus.forEach(a => {
+        const isTomado = a.status === "Tomado";
+        const isFiring = a.status.includes("Dispar");
+
+        const medResponsavel = bancoMedicos.find(m => m.id === a.medicoId);
+        const nomeMedico = medResponsavel ? medResponsavel.nome : "Médico Plantonista";
+
+        let chatHtml = '';
+        if (a.observacao || a.respostaMedico) {
+            chatHtml += `<div style="margin-top: 12px; padding: 10px; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px;">`;
+            if (a.observacao) {
+                chatHtml += `<div style="margin-bottom: 6px;"><strong>Sua Mensagem:</strong> ${a.observacao}</div>`;
+            }
+            if (a.respostaMedico) {
+                chatHtml += `<div style="color: var(--success); border-top: 1px dashed var(--border-strong); padding-top: 6px; margin-top: 6px;"><strong>🩺 Resposta do ${nomeMedico}:</strong> ${a.respostaMedico}</div>`;
+            }
+            chatHtml += `</div>`;
+        }
+
+        const campoFalarMedico = `
+            <div style="margin-top: 12px; background: var(--ice); padding: 10px; border-radius: var(--radius); border: 1px solid var(--ice-mid);">
+                <label style="font-size: 11px; font-weight: bold; color: var(--text-mid); display: block; margin-bottom: 4px;">Enviar mensagem para o ${nomeMedico}:</label>
+                <div style="display:flex; gap:6px;">
+                    <input type="text" id="obs-input-${a.id}" placeholder="Digite sua dúvida ou feedback..." style="flex:1; padding:6px 10px; font-size:13px; border:1px solid var(--border-strong); border-radius:6px;">
+                    <button class="btn btn-sm btn-cyan" style="padding: 6px 12px; width:auto; margin:0;" onclick="enviarObservacao(${a.id})">Enviar</button>
+                </div>
+            </div>
+        `;
+
+        const card = document.createElement("div");
+        card.className = `med-card${isTomado ? ' taken-card' : ''}${isFiring ? ' firing-card' : ''}`;
+        card.innerHTML = `
+            <div class="med-card-top">
+                <div class="med-name">💊 ${a.remedio}</div>
+                <div class="med-time">⏰ ${a.horario}</div>
+            </div>
+            ${a.descHorario ? `<div class="med-specific">🎯 ${a.descHorario}</div>` : ''}
+            <div class="med-detail">ℹ️ ${a.instrucoes}</div>
+            <div style="margin-top:4px; font-size:12px; color: var(--text-mid);"><strong>🩺 Prescritor:</strong> ${nomeMedico}</div>
+            <div style="margin-top:8px;"><span class="status-pill ${isTomado ? 'taken' : isFiring ? 'firing' : 'pending'}">${a.status}</span></div>
+            
+            ${chatHtml}
+            ${campoFalarMedico}
+            
+            ${!isTomado ? `<button class="btn btn-green" style="margin-top:12px;" onclick="marcarTomado(${a.id})"><svg viewBox="0 0 24 24" stroke="white" style="width:16px;height:16px;fill:none;stroke-width:2.5"><polyline points="20 6 9 17 4 12"/></svg> Marcar como Tomado</button>` : ''}
+        `;
+        c.appendChild(card);
+    });
+}
 
     function marcarTomado(id) {
         const a = globalAlarmes.find(al => al.id === id);
-        if (a) { 
-            a.status = "Tomado"; 
-            salvar(); 
-            atualizarInterfaceDoPaciente(); 
-
-            const hPac = document.getElementById("historicoMedsPaciente");
-            if (hPac && hPac.style.display === "block") {
-                hPac.style.display = "none";
-                mostrarHistoricoMedicamentosTomados();
-            }
-        }
+        if (a) { a.status = "Tomado"; salvar(); atualizarInterfaceDoPaciente(); }
     }
 
     function cadastrarPacientePeloMedico() {
@@ -1402,38 +1457,6 @@
         ["cadNome","cadEmail","cadTelefone","cadSenha"].forEach(i => document.getElementById(i).value = "");
         alert(`Paciente "${nome}" registrado com sucesso!`);
         atualizarDropdownPacientes();
-    }
-
-    function mostrarHistoricoMedicamentosTomados() {
-        const div = document.getElementById("historicoMedsPaciente");
-        if (!div) return;
-        const tomados = globalAlarmes.filter(a => a.pacienteId === atualPacienteLogadoId && a.status === "Tomado");
-        if (tomados.length === 0) {
-            div.innerHTML = "Nenhum medicamento marcado como 'Tomado' recentemente.";
-        } else {
-            div.innerHTML = "<strong>Últimos Medicamentos Tomados:</strong><br>" + 
-                tomados.map(t => `• ${t.remedio} agendado para as ${t.horario}`).join("<br>");
-        }
-        div.style.display = "block";
-    }
-
-    function mostrarUltimosPacientesMedicados() {
-        const div = document.getElementById("historicoPacsMedico");
-        if (!div) return;
-        
-        const minhasReceitas = globalAlarmes.filter(a => a.medicoId === atualMedicoLogadoId);
-        const pacIdsUnicos = [...new Set(minhasReceitas.map(a => a.pacienteId))];
-
-        if (pacIdsUnicos.length === 0) {
-            div.innerHTML = "Você não medicou nenhum paciente pelo sistema recentemente.";
-        } else {
-            const listagem = pacIdsUnicos.map(id => {
-                const pac = bancoPacientes.find(p => p.id === id);
-                return pac ? `• ${pac.nome} (${pac.email})` : "• Paciente Desconhecido";
-            }).join("<br>");
-            div.innerHTML = "<strong>Últimos Pacientes Atendidos:</strong><br>" + listagem;
-        }
-        div.style.display = "block";
     }
 
     /* ADMIN CRUD */
@@ -1559,87 +1582,6 @@
             salvar(); renderAdminMedicos();
         }
     }
-
-    /* MÉTODOS DE CONFIGURAÇÃO E SUPORTE ADICIONADOS */
-    function toggleConfigPanel() {
-        const panel = document.getElementById("configPanel");
-        panel.classList.toggle("open");
-        if (panel.classList.contains("open")) {
-            atualizarPainelConfig();
-        }
-    }
-
-    function toggleTemaEscuro() {
-        document.body.classList.toggle("dark-mode");
-        const darkAtivo = document.body.classList.contains("dark-mode");
-        localStorage.setItem('simeMed_theme', darkAtivo ? 'dark' : 'light');
-    }
-
-    function enviarMensagemSuporte() {
-        const msg = document.getElementById("suporteMensagem").value.trim();
-        if (!msg) { alert("Por favor, digite sua mensagem."); return; }
-        
-        let remetente = "Usuário Não Logado";
-        if (atualPacienteLogadoId) {
-            const p = bancoPacientes.find(x => x.id === atualPacienteLogadoId);
-            if (p) remetente = `Paciente: ${p.nome} (${p.email})`;
-        } else if (atualMedicoLogadoId) {
-            const m = bancoMedicos.find(x => x.id === atualMedicoLogadoId);
-            if (m) remetente = `Médico: ${m.nome} (${m.email})`;
-        }
-
-        bancoSuporte.push({
-            id: Date.now(),
-            usuario: remetente,
-            texto: msg,
-            hora: new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'})
-        });
-        
-        salvar();
-        document.getElementById("suporteMensagem").value = "";
-        alert("Mensagem de suporte enviada com sucesso ao Admin!");
-        toggleConfigPanel();
-    }
-
-    function atualizarPainelConfig() {
-        const shortcuts = document.getElementById("config-shortcuts");
-        const clientSupport = document.getElementById("config-support-client");
-        const adminSupport = document.getElementById("config-support-admin");
-        
-        shortcuts.innerHTML = "";
-        clientSupport.style.display = "block";
-        adminSupport.style.display = "none";
-
-        if (isAdminLogado) {
-            clientSupport.style.display = "none";
-            adminSupport.style.display = "block";
-            
-            const listagem = document.getElementById("listaChamadosSuporte");
-            if (bancoSuporte.length === 0) {
-                listagem.innerHTML = "<span style='color:var(--text-muted)'>Nenhum chamado pendente.</span>";
-            } else {
-                listagem.innerHTML = bancoSuporte.map(ch => `
-                    <div style="border-bottom: 1px solid var(--border); padding-bottom:6px; margin-bottom:6px;">
-                        <strong>${ch.usuario}</strong> <span style="color:var(--text-muted); font-size:10px;">(${ch.hora})</span><br>
-                        <span style="color:var(--text-mid)">${ch.texto}</span>
-                    </div>
-                `).join("");
-            }
-        } else if (atualPacienteLogadoId !== null) {
-            shortcuts.innerHTML = `
-                <button class="btn btn-green btn-sm" style="width:100%; margin-bottom: 5px;" onclick="mostrarHistoricoMedicamentosTomados(); toggleConfigPanel();">
-                    📋 Ver Últimos Medicamentos Tomados
-                </button>
-            `;
-        } else if (atualMedicoLogadoId !== null) {
-            shortcuts.innerHTML = `
-                <button class="btn btn-primary btn-sm" style="width:100%; margin-bottom: 5px;" onclick="mostrarUltimosPacientesMedicados(); toggleConfigPanel();">
-                    📋 Ver Últimos Pacientes Atendidos
-                </button>
-            `;
-        }
-    }
 </script>
-
 </body>
 </html>
