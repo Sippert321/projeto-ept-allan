@@ -627,13 +627,13 @@
                         </div>
                         <span>Prescrições</span>
                     </div>
-                    <div class="hero-feat">
+                    <div class="hero-features">
                         <div class="hero-feat-icon">
                             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
                         <span>Alertas</span>
                     </div>
-                    <div class="hero-feat">
+                    <div class="hero-features">
                         <div class="hero-feat-icon">
                             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                         </div>
@@ -1028,7 +1028,6 @@
         if (pac) {
             atualPacienteLogadoId = pac.id;
             const nm = document.getElementById("boasVindasPaciente");
-            // Atualiza dinamicamente o nome mantendo o design do card
             nm.innerHTML = `Olá! <span>${pac.nome.split(' ')[0]}</span> 👋`;
             mostrarTela("tela-paciente");
             atualizarInterfaceDoPaciente();
@@ -1096,27 +1095,22 @@
         document.getElementById('sub-' + aba).classList.add('visible');
         document.getElementById('tabMedPrescricao').classList.remove('active');
         document.getElementById('tabMedCadastrar').classList.remove('active');
-        if (aba === 'prescricao') { document.getElementById('tabMedPrescricao').classList.add('active'); atualizarDropdownPacientes(); }
+        if (aba === 'prescricao') { document.getElementById('tabMedPrescricao').classList.add('active'); atualizarDropdownPacientes(); atualizarTabelaMedico(); }
         else { document.getElementById('tabMedCadastrar').classList.add('active'); }
     }
 
-    // CORREÇÃO APLICADA: Os IDs corretos das abas do painel admin estão referenciados aqui
     function subTelaAdmin(aba) {
-        // Esconde todos os blocos de conteúdo
         ['pacientes','receitas','medicos'].forEach(a => {
             document.getElementById('adm-' + a).classList.remove('visible');
         });
-        // Remove 'active' de todos os botões de abas do admin
         ['tabAdmPac','tabAdmRec','tabAdmMed'].forEach(id => {
             document.getElementById(id).classList.remove('active');
         });
 
-        // Mostra a aba selecionada
         document.getElementById('adm-' + aba).classList.add('visible');
         const tabId = { pacientes: 'tabAdmPac', receitas: 'tabAdmRec', medicos: 'tabAdmMed' };
         document.getElementById(tabId[aba]).classList.add('active');
 
-        // Chama a função de renderização correspondente
         if (aba === 'pacientes') renderAdminPacientes();
         else if (aba === 'receitas') renderAdminReceitas();
         else renderAdminMedicos();
@@ -1126,7 +1120,6 @@
         const c = document.getElementById("lista-horarios");
         const d = document.createElement("div");
         d.className = "schedule-row";
-        // CORREÇÃO: Adicionado type="button" para não ser interpretado como submissão de forma acidental
         d.innerHTML = `<input type="time"><input type="text" placeholder="Dosagem ou remédio exato…"><button type="button" class="btn-remove-row" onclick="this.parentElement.remove()">✕</button>`;
         c.appendChild(d);
     }
@@ -1148,7 +1141,17 @@
             if (hora) {
                 count++;
                 const id = globalAlarmes.length > 0 ? Math.max(...globalAlarmes.map(a => a.id)) + 1 : 1;
-                globalAlarmes.push({ id, pacienteId: pacId, remedio, instrucoes: instrucoes || "Sem orientações adicionais.", horario: hora, descHorario: desc, status: "Pendente" });
+                globalAlarmes.push({ 
+                    id, 
+                    pacienteId: pacId, 
+                    remedio, 
+                    instrucoes: instrucoes || "Sem orientações adicionais.", 
+                    horario: hora, 
+                    descHorario: desc, 
+                    status: "Pendente",
+                    observacao: "",
+                    respostaMedico: ""
+                });
             }
         });
         
@@ -1174,8 +1177,37 @@
             const pac = bancoPacientes.find(p => p.id === a.pacienteId);
             const nomePac = pac ? pac.nome : "Desconhecido";
             const statusClass = a.status === "Tomado" ? "taken" : a.status.includes("Dispar") ? "firing" : "pending";
+            
+            let docChatHtml = '';
+            if (a.observacao) {
+                docChatHtml += `<div style="margin-top: 8px; padding: 10px; background: var(--warning-bg); border-radius: var(--radius); font-size: 12px; border: 1px solid rgba(183,119,13,0.15); color: var(--text-main);">`;
+                docChatHtml += `<div><strong>❓ Dúvida do Paciente:</strong> ${a.observacao}</div>`;
+                if (a.respostaMedico) {
+                    docChatHtml += `<div style="margin-top: 6px; color: var(--success); border-top: 1px dashed var(--border-strong); padding-top: 4px;"><strong>🩺 Sua Resposta:</strong> ${a.respostaMedico}</div>`;
+                }
+                docChatHtml += `
+                    <div style="margin-top: 6px; display: flex; gap: 6px;">
+                        <input type="text" id="resp-input-${a.id}" placeholder="Digitar resposta institucional..." style="flex:1; padding: 6px 10px; font-size: 11px; border: 1px solid var(--border-strong); border-radius: 4px; background: white;" value="${a.respostaMedico || ''}">
+                        <button class="btn btn-sm btn-green" style="width:auto; padding: 4px 10px; font-size: 11px; margin:0;" onclick="enviarRespostaMedico(${a.id})">Enviar</button>
+                    </div>
+                `;
+                docChatHtml += `</div>`;
+            } else {
+                docChatHtml += `<div style="margin-top: 4px; font-size: 11px; color: var(--text-muted); font-style: italic;">Nenhuma dúvida enviada pelo paciente.</div>`;
+            }
+
             const tr = document.createElement("tr");
-            tr.innerHTML = `<td>${nomePac}</td><td>${a.remedio}${a.descHorario ? `<br><small style="color:var(--text-muted)">${a.descHorario}</small>` : ""}</td><td><strong>${a.horario}</strong></td><td><span class="status-pill ${statusClass}">${a.status}</span></td><td><button class="btn btn-sm btn-danger" style="width:auto;" onclick="deletarPrescricao(${a.id})">Remover</button></td>`;
+            tr.innerHTML = `
+                <td>${nomePac}</td>
+                <td>
+                    <strong>${a.remedio}</strong>
+                    ${a.descHorario ? `<br><small style="color:var(--text-muted)">${a.descHorario}</small>` : ""}
+                    ${docChatHtml}
+                </td>
+                <td><strong>${a.horario}</strong></td>
+                <td><span class="status-pill ${statusClass}">${a.status}</span></td>
+                <td><button class="btn btn-sm btn-danger" style="width:auto;" onclick="deletarPrescricao(${a.id})">Remover</button></td>
+            `;
             tb.appendChild(tr);
         });
     }
@@ -1184,6 +1216,30 @@
         if (confirm("Remover esta prescrição?")) {
             globalAlarmes = globalAlarmes.filter(a => a.id !== id);
             salvar(); atualizarTabelaMedico();
+        }
+    }
+
+    function enviarObservacao(id) {
+        const txt = document.getElementById(`obs-input-${id}`).value.trim();
+        if (!txt) { alert("Por favor, digite uma observação ou dúvida."); return; }
+        const a = globalAlarmes.find(al => al.id === id);
+        if (a) {
+            a.observacao = txt;
+            salvar();
+            atualizarInterfaceDoPaciente();
+            alert("Observação enviada com sucesso! O médico responsável foi notificado.");
+        }
+    }
+
+    function enviarRespostaMedico(id) {
+        const txt = document.getElementById(`resp-input-${id}`).value.trim();
+        if (!txt) { alert("Por favor, digite uma resposta para o paciente."); return; }
+        const a = globalAlarmes.find(al => al.id === id);
+        if (a) {
+            a.respostaMedico = txt;
+            salvar();
+            atualizarTabelaMedico();
+            alert("Resposta enviada para o painel do paciente.");
         }
     }
 
@@ -1221,6 +1277,26 @@
         meus.forEach(a => {
             const isTomado = a.status === "Tomado";
             const isFiring = a.status.includes("Dispar");
+            
+            let chatHtml = '';
+            if (a.observacao || a.respostaMedico) {
+                chatHtml += `<div style="margin-top: 12px; padding: 10px; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px;">`;
+                if (a.observacao) {
+                    chatHtml += `<div style="margin-bottom: 6px;"><strong>Sua Dúvida/Obs:</strong> ${a.observacao}</div>`;
+                }
+                if (a.respostaMedico) {
+                    chatHtml += `<div style="color: var(--success); border-top: 1px dashed var(--border-strong); padding-top: 6px; margin-top: 6px;"><strong>🩺 Resposta do Médico:</strong> ${a.respostaMedico}</div>`;
+                }
+                chatHtml += `</div>`;
+            }
+            
+            chatHtml += `
+                <div style="margin-top: 12px; display: flex; gap: 8px; align-items: center;">
+                    <input type="text" id="obs-input-${a.id}" placeholder="Dúvida ou observação sobre o uso..." style="flex:1; padding: 8px 12px; font-size: 13px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--off-white);" value="${a.observacao || ''}">
+                    <button class="btn btn-sm btn-cyan" style="width: auto; margin: 0; padding: 8px 14px;" onclick="enviarObservacao(${a.id})">Enviar</button>
+                </div>
+            `;
+
             const card = document.createElement("div");
             card.className = `med-card${isTomado ? ' taken-card' : ''}${isFiring ? ' firing-card' : ''}`;
             card.innerHTML = `
@@ -1231,6 +1307,7 @@
                 ${a.descHorario ? `<div class="med-specific">🎯 ${a.descHorario}</div>` : ''}
                 <div class="med-detail">ℹ️ ${a.instrucoes}</div>
                 <div><span class="status-pill ${isTomado ? 'taken' : isFiring ? 'firing' : 'pending'}">${a.status}</span></div>
+                ${chatHtml}
                 ${!isTomado ? `<button class="btn btn-green" style="margin-top:12px;" onclick="marcarTomado(${a.id})"><svg viewBox="0 0 24 24" stroke="white" style="width:16px;height:16px;fill:none;stroke-width:2.5"><polyline points="20 6 9 17 4 12"/></svg> Marcar como Tomado</button>` : ''}
             `;
             c.appendChild(card);
@@ -1373,7 +1450,7 @@
         salvar();
         
         ["addMedNome","addMedEmail","addMedSenha"].forEach(i => document.getElementById(i).value = "");
-        alert("Médico adicionado com sucess!");
+        alert("Médico adicionado com sucesso!");
         renderAdminMedicos();
     }
 
